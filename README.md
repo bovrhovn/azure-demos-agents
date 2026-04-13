@@ -29,26 +29,26 @@
 
 ## 🚀 Quick start
 
-1) Move to the solution directory
+1. Move to the solution directory
 
 ```bash
 cd src/MAF
 ```
 
-2) Sign in to Azure
+2. Sign in to Azure
 
 ```bash
 az login
 ```
 
-3) Set environment variables
+3. Set environment variables
 
 ```bash
 export ENDPOINT="<your-ai-foundry-project-endpoint>"
 export DEPLOYMENTNAME="<your-model-deployment-name>"
 ```
 
-4) Run a sample
+4. Run a sample
 
 ```bash
 dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
