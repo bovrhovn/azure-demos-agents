@@ -12,5 +12,6 @@
     <Project Path="MAF.Tools.Function/MAF.Tools.Function.csproj" />
     <Project Path="MAF.Tools.MCP/MAF.Tools.MCP.csproj" />
     <Project Path="MAF.Tools.MCPServer/MAF.Tools.MCPServer.csproj" />
+    <Project Path="MAF.Tools.WebSearch/MAF.Tools.WebSearch.csproj" />
   </Folder>
 </Solution>
