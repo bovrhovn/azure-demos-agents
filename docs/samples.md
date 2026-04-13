@@ -1,6 +1,6 @@
 # Samples
 
-All samples are in `/home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF` and require `ENDPOINT` and `DEPLOYMENTNAME` environment variables.
+All samples are in `src/MAF` and require `ENDPOINT` and `DEPLOYMENTNAME` environment variables.
 
 ## 1) MAF.SimpleAgent
 
@@ -11,7 +11,7 @@ All samples are in `/home/runner/work/azure-demos-agents/azure-demos-agents/src/
 - Run:
 
 ```bash
-cd /home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF
+cd src/MAF
 dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
 ```
 
@@ -25,7 +25,7 @@ dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
 - Run:
 
 ```bash
-cd /home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF
+cd src/MAF
 dotnet run --project MAF.Memory.SessionContext/MAF.Memory.SessionContext.csproj
 ```
 
@@ -38,7 +38,7 @@ dotnet run --project MAF.Memory.SessionContext/MAF.Memory.SessionContext.csproj
 - Run:
 
 ```bash
-cd /home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF
+cd src/MAF
 dotnet run --project MAF.Memory.Compaction/MAF.Memory.Compaction.csproj
 ```
 
@@ -52,7 +52,7 @@ dotnet run --project MAF.Memory.Compaction/MAF.Memory.Compaction.csproj
 - Run:
 
 ```bash
-cd /home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF
+cd src/MAF
 dotnet run --project MAF.Memory.CustomChatProvider/MAF.Memory.CustomChatProvider.csproj
 ```
 
@@ -66,7 +66,7 @@ dotnet run --project MAF.Memory.CustomChatProvider/MAF.Memory.CustomChatProvider
 - Run:
 
 ```bash
-cd /home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF
+cd src/MAF
 dotnet run --project MAF.Tools.Function/MAF.Tools.Function.csproj
 ```
 

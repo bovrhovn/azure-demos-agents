@@ -24,7 +24,7 @@ Sample .NET console apps that demonstrate agent scenarios with **Azure AI Foundr
 1. Go to solution folder:
 
    ```bash
-   cd /home/runner/work/azure-demos-agents/azure-demos-agents/src/MAF
+   cd src/MAF
    ```
 
 2. Sign in to Azure:
