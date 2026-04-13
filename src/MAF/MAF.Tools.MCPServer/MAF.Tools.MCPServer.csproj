@@ -11,9 +11,4 @@
         <PackageReference Include="ModelContextProtocol" Version="1.2.0" />
         <PackageReference Include="ModelContextProtocol.AspNetCore" Version="1.2.0" />
     </ItemGroup>
-    <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
 </Project>
