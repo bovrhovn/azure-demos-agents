@@ -10,10 +10,14 @@
 |---|---|
 | `src/MAF/MAF.slnx` | Solution containing all samples |
 | `src/MAF/MAF.SimpleAgent` | Basic single-turn agent run |
+| `src/MAF/MAF.SimpleAgent.StructuredApproach` | Structured-output agent response pattern |
 | `src/MAF/MAF.Memory.SessionContext` | Multi-turn chat with shared session memory |
 | `src/MAF/MAF.Memory.Compaction` | Context compaction pipeline for longer chats |
 | `src/MAF/MAF.Memory.CustomChatProvider` | Custom chat history provider patterns |
 | `src/MAF/MAF.Tools.Function` | Function/tool calling from the agent |
+| `src/MAF/MAF.Tools.MCP` | Agent tool-calling through an MCP endpoint |
+| `src/MAF/MAF.Tools.MCPServer` | Standalone MCP server sample (HTTP + container-ready) |
+| `src/MAF/MAF.Tools.WebSearch` | Agent with Bing grounding/web search tool |
 | `docs/` | Setup and sample walkthroughs |
 
 ---
@@ -60,6 +64,7 @@ dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
 
 - Start here: [`docs/getting-started.md`](docs/getting-started.md)
 - Sample catalog: [`docs/samples.md`](docs/samples.md)
+- MCP server hosting (Azure Container Apps + ACR): [`docs/getting-started.md#5--host-the-mcp-server-on-azure-container-apps-with-azure-container-registry`](docs/getting-started.md#5--host-the-mcp-server-on-azure-container-apps-with-azure-container-registry)
 
 ---
 
@@ -70,3 +75,5 @@ dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
 - [Azure SDK for .NET (`Azure.AI.Projects`)](https://learn.microsoft.com/dotnet/api/azure.ai.projects?view=azure-dotnet)
 - [`DefaultAzureCredential` docs](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
 - [Microsoft .NET + AI docs](https://learn.microsoft.com/dotnet/ai/)
+- [Azure Container Registry docs](https://learn.microsoft.com/azure/container-registry/)
+- [Azure Container Apps docs](https://learn.microsoft.com/azure/container-apps/)
