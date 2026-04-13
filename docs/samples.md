@@ -1,6 +1,6 @@
 # 🧪 Samples
 
-All samples live under `src/MAF` and require `ENDPOINT` and `DEPLOYMENTNAME`.
+All samples live under `src/MAF` and require `ENDPOINT` and `DEPLOYMENTNAME` environment variables.
 
 ---
 
