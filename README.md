@@ -1,60 +1,72 @@
-# Azure Demos Agents
+# 🤖 Azure Demos Agents
 
-Sample .NET console apps that demonstrate agent scenarios with **Azure AI Foundry** and **Microsoft.Agents.AI**.
+> Practical .NET console demos for building agents with **Azure AI Foundry** and **Microsoft.Agents.AI**.
 
-## What is in this repository
+---
 
-- `src/MAF/MAF.slnx` – solution with all samples
-- `src/MAF/MAF.SimpleAgent` – basic single-turn agent run
-- `src/MAF/MAF.Memory.SessionContext` – multi-turn conversation using a shared session
-- `src/MAF/MAF.Memory.Compaction` – context compaction pipeline for longer chats
-- `src/MAF/MAF.Memory.CustomChatProvider` – custom chat history provider pattern
-- `src/MAF/MAF.Tools.Function` – function/tool calling from the agent
-- `docs/` – detailed setup and sample walkthroughs
+## ✨ What’s inside
 
-## Prerequisites
+| Path | Purpose |
+|---|---|
+| `src/MAF/MAF.slnx` | Solution containing all samples |
+| `src/MAF/MAF.SimpleAgent` | Basic single-turn agent run |
+| `src/MAF/MAF.Memory.SessionContext` | Multi-turn chat with shared session memory |
+| `src/MAF/MAF.Memory.Compaction` | Context compaction pipeline for longer chats |
+| `src/MAF/MAF.Memory.CustomChatProvider` | Custom chat history provider patterns |
+| `src/MAF/MAF.Tools.Function` | Function/tool calling from the agent |
+| `docs/` | Setup and sample walkthroughs |
+
+---
+
+## ✅ Prerequisites
 
 - .NET SDK `10.0`
 - Azure subscription
 - Azure AI Foundry project with a deployed model
-- Azure login (for `DefaultAzureCredential`)
+- Azure login for `DefaultAzureCredential`
 
-## Quick start
+---
 
-1. Go to solution folder:
+## 🚀 Quick start
 
-   ```bash
-   cd src/MAF
-   ```
+1) Move to the solution directory
 
-2. Sign in to Azure:
+```bash
+cd src/MAF
+```
 
-   ```bash
-   az login
-   ```
+2) Sign in to Azure
 
-3. Set required environment variables:
+```bash
+az login
+```
 
-   ```bash
-   export ENDPOINT="<your-ai-foundry-project-endpoint>"
-   export DEPLOYMENTNAME="<your-model-deployment-name>"
-   ```
+3) Set environment variables
 
-4. Run a sample:
+```bash
+export ENDPOINT="<your-ai-foundry-project-endpoint>"
+export DEPLOYMENTNAME="<your-model-deployment-name>"
+```
 
-   ```bash
-   dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
-   ```
+4) Run a sample
 
-## Samples summary
+```bash
+dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
+```
 
-- Full setup guide: [`docs/getting-started.md`](docs/getting-started.md)
-- Detailed sample descriptions and run commands: [`docs/samples.md`](docs/samples.md)
+---
 
-## Official sources
+## 📚 Documentation
 
-- Azure AI Foundry docs: https://learn.microsoft.com/azure/ai-foundry/
-- Azure AI Foundry Agent Service overview: https://learn.microsoft.com/azure/ai-foundry/agents/overview
-- Azure SDK for .NET (`Azure.AI.Projects`): https://learn.microsoft.com/dotnet/api/azure.ai.projects?view=azure-dotnet
-- `DefaultAzureCredential` docs: https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet
-- Microsoft .NET + AI docs: https://learn.microsoft.com/dotnet/ai/
+- Start here: [`docs/getting-started.md`](docs/getting-started.md)
+- Sample catalog: [`docs/samples.md`](docs/samples.md)
+
+---
+
+## 🔗 Official resources
+
+- [Azure AI Foundry docs](https://learn.microsoft.com/azure/ai-foundry/)
+- [Azure AI Foundry Agent Service overview](https://learn.microsoft.com/azure/ai-foundry/agents/overview)
+- [Azure SDK for .NET (`Azure.AI.Projects`)](https://learn.microsoft.com/dotnet/api/azure.ai.projects?view=azure-dotnet)
+- [`DefaultAzureCredential` docs](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
+- [Microsoft .NET + AI docs](https://learn.microsoft.com/dotnet/ai/)
