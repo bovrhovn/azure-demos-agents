@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/Basic/">
+    <Project Path="MAF.SimpleAgent/MAF.SimpleAgent.csproj" />
+  </Folder>
+  <Folder Name="/Memory/">
+    <Project Path="MAF.Memory.Compaction/MAF.Memory.Compaction.csproj" />
+    <Project Path="MAF.Memory.CustomChatProvider/MAF.Memory.CustomChatProvider.csproj" />
+    <Project Path="MAF.Memory.SessionContext/MAF.Memory.SessionContext.csproj" />
+  </Folder>
+  <Folder Name="/RAG/" />
+  <Folder Name="/Tools/">
+    <Project Path="MAF.Tools.Function/MAF.Tools.Function.csproj" />
+  </Folder>
+</Solution>
