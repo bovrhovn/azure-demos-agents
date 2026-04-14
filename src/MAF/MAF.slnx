@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Basic/">
+    <Project Path="MAF.SimpleAgent.BackgroundResponses/MAF.SimpleAgent.BackgroundResponses.csproj" />
     <Project Path="MAF.SimpleAgent.StructuredApproach/MAF.SimpleAgent.StructuredApproach.csproj" />
     <Project Path="MAF.SimpleAgent/MAF.SimpleAgent.csproj" />
   </Folder>
