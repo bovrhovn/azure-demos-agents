@@ -9,7 +9,9 @@
     <Project Path="MAF.Memory.CustomChatProvider/MAF.Memory.CustomChatProvider.csproj" />
     <Project Path="MAF.Memory.SessionContext/MAF.Memory.SessionContext.csproj" />
   </Folder>
-  <Folder Name="/RAG/" />
+  <Folder Name="/RAG/">
+    <Project Path="MAF.Rag.TextSearchProvider/MAF.Rag.TextSearchProvider.csproj" />
+  </Folder>
   <Folder Name="/Tools/">
     <Project Path="MAF.Tools.Function/MAF.Tools.Function.csproj" />
     <Project Path="MAF.Tools.MCP/MAF.Tools.MCP.csproj" />
