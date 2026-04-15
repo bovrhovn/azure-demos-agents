@@ -53,6 +53,7 @@ dotnet test --logger "console;verbosity=normal"
 | `PersonInfoTests.cs` | `MAF.SimpleAgent.StructuredApproach.PersonInfo` | `MAF.SimpleAgent.StructuredApproach` |
 | `GuardrailHelperTests.cs` | `MAF.Middleware.Helpers.GuardrailHelper` | `MAF.Middleware` |
 | `DocumentSearchAdapterTests.cs` | `MAF.Rag.TextSearchProvider.Helpers.DocumentSearchAdapter` | `MAF.Rag.TextSearchProvider` |
+| `AgentAsToolHelperTests.cs` | `MAF.Tools.AgentAsTool.Helpers.AgentAsToolHelper` | `MAF.Tools.AgentAsTool` |
 
 ### TaxMethod
 
@@ -86,6 +87,15 @@ Tests the mock document search back-end used in the RAG sample. Covers:
 - Unrelated queries returning an empty collection
 - `null` query throwing `ArgumentNullException`
 - Result records containing non-empty `SourceName`, `SourceLink`, and `Text`
+
+### AgentAsToolHelper
+
+Tests the tax calculation helper extracted from the agent-as-tool sample. Covers:
+
+- Single month, multi-month, and zero-month calculations
+- Verifying that customer name does not affect the result
+- Data-driven `[Theory]` tests for multiple inputs
+- Result matching the expected formula (base rate × months)
 
 ---
 

@@ -268,6 +268,23 @@ dotnet run --project MAF.DevUI/MAF.DevUI.csproj
 
 Then open [https://localhost:50516/devui](https://localhost:50516/devui) in your browser.
 
+
+---
+
+## 16) 🤖 MAF.Tools.AgentAsTool
+
+- **Project:** `MAF.Tools.AgentAsTool/MAF.Tools.AgentAsTool.csproj`
+- **Highlights:**
+  - Demonstrates the **agent-as-tool** pattern: a sub-agent is wrapped with `.AsAIFunction()` and registered as a tool on a parent agent
+  - The parent agent delegates work to the sub-agent transparently during tool calling
+  - Useful for composing specialised agents into a single orchestrated pipeline
+- **Run:**
+
+```bash
+cd src/MAF
+dotnet run --project MAF.Tools.AgentAsTool/MAF.Tools.AgentAsTool.csproj
+```
+
 ## 🔗 Useful references
 
 - [Azure AI Foundry docs](https://learn.microsoft.com/azure/ai-foundry/)

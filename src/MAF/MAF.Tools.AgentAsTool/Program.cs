@@ -1,5 +1,6 @@
 ﻿using Azure.AI.Projects;
 using Azure.Identity;
+using MAF.Tools.AgentAsTool.Helpers;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Spectre.Console;
@@ -23,7 +24,7 @@ AIAgent agent = new AIProjectClient(new Uri(endpoint), new DefaultAzureCredentia
         model: deploymentName,
         instructions: "You are a friendly assistant. Keep your answers brief.",
         name: "SimpleAgentWithFunction",
-        tools: [AIFunctionFactory.Create(CalculateTaxMethod)]);
+        tools: [AIFunctionFactory.Create(AgentAsToolHelper.CalculateTax)]);
 var question = AnsiConsole.Ask<string>("Ask your question",
     "What is the tax for customer TheCustomer for last 6 months?");
 
@@ -39,11 +40,3 @@ AIAgent mainAgent = new AIProjectClient(
 AnsiConsole.MarkupLine("[green]Question:[/]" + question);
 var answer = await mainAgent.RunAsync(question);
 AnsiConsole.MarkupLine("[green]Answer:[/]" + answer);
-
-static float CalculateTaxMethod(string customerName, int months)
-{
-    // In real world scenario, you would have complex logic here to calculate tax based on customer and months
-    var baseTax = 100; // base tax amount
-    var tax = baseTax * months; // simple calculation for demonstration
-    return tax;
-}

@@ -25,6 +25,7 @@
         <ProjectReference Include="..\..\src\MAF\MAF.SimpleAgent.StructuredApproach\MAF.SimpleAgent.StructuredApproach.csproj" />
         <ProjectReference Include="..\..\src\MAF\MAF.Middleware\MAF.Middleware.csproj" />
         <ProjectReference Include="..\..\src\MAF\MAF.Rag.TextSearchProvider\MAF.Rag.TextSearchProvider.csproj" />
+        <ProjectReference Include="..\..\src\MAF\MAF.Tools.AgentAsTool\MAF.Tools.AgentAsTool.csproj" />
     </ItemGroup>
 
 </Project>

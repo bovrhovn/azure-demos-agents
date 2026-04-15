@@ -19,6 +19,7 @@
 | `src/MAF/MAF.Tools.MCP` | Agent tool-calling through an MCP endpoint |
 | `src/MAF/MAF.Tools.MCPServer` | Standalone MCP server sample (HTTP + container-ready) |
 | `src/MAF/MAF.Tools.WebSearch` | Agent with Bing grounding/web search tool |
+| `src/MAF/MAF.Tools.AgentAsTool` | Agent-as-tool pattern: one agent exposed as a callable tool to another agent |
 | `src/MAF/MAF.Middleware` | Agent middleware / content-filtering guardrail pattern |
 | `src/MAF/MAF.Rag.TextSearchProvider` | RAG pattern using a text search context provider |
 | `src/MAF/MAF.Skills.FileBased` | File-based skill discovery with `AgentSkillsProvider` |
