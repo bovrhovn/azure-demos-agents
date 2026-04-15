@@ -11,6 +11,7 @@
 | `src/MAF/MAF.slnx` | Solution containing all samples |
 | `src/MAF/MAF.SimpleAgent` | Basic single-turn agent run |
 | `src/MAF/MAF.SimpleAgent.StructuredApproach` | Structured-output agent response pattern |
+| `src/MAF/MAF.SimpleAgent.BackgroundResponses` | Background/async response polling pattern |
 | `src/MAF/MAF.Memory.SessionContext` | Multi-turn chat with shared session memory |
 | `src/MAF/MAF.Memory.Compaction` | Context compaction pipeline for longer chats |
 | `src/MAF/MAF.Memory.CustomChatProvider` | Custom chat history provider patterns |
@@ -18,7 +19,13 @@
 | `src/MAF/MAF.Tools.MCP` | Agent tool-calling through an MCP endpoint |
 | `src/MAF/MAF.Tools.MCPServer` | Standalone MCP server sample (HTTP + container-ready) |
 | `src/MAF/MAF.Tools.WebSearch` | Agent with Bing grounding/web search tool |
+| `src/MAF/MAF.Middleware` | Agent middleware / content-filtering guardrail pattern |
+| `src/MAF/MAF.Rag.TextSearchProvider` | RAG pattern using a text search context provider |
+| `src/MAF/MAF.Skills.FileBased` | File-based skill discovery with `AgentSkillsProvider` |
+| `src/MAF/MAF.Skills.InlineSkill` | Inline skill definition with dynamic resources |
+| `src/MAF/MAF.DevUI` | Multi-agent web host with DevUI, workflows, and OpenAI API surface |
 | `docs/` | Setup and sample walkthroughs |
+| `tests/MAF.Tests` | Unit tests for business logic across the samples |
 
 ---
 
@@ -60,11 +67,24 @@ dotnet run --project MAF.SimpleAgent/MAF.SimpleAgent.csproj
 
 ---
 
+## 🧪 Tests
+
+Unit tests live in `tests/MAF.Tests` and cover the testable business logic extracted from the samples.
+
+```bash
+cd tests/MAF.Tests
+dotnet test
+```
+
+See [`docs/testing.md`](docs/testing.md) for details on what is tested and how to run tests locally.
+
+---
+
 ## 📚 Documentation
 
 - Start here: [`docs/getting-started.md`](docs/getting-started.md)
 - Sample catalog: [`docs/samples.md`](docs/samples.md)
-- MCP server hosting (Azure Container Apps + ACR): [`docs/getting-started.md#5--host-the-mcp-server-on-azure-container-apps-with-azure-container-registry`](docs/getting-started.md#5--host-the-mcp-server-on-azure-container-apps-with-azure-container-registry)
+- Testing guide: [`docs/testing.md`](docs/testing.md)
 
 ---
 

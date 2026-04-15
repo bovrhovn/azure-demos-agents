@@ -1,6 +1,7 @@
 ﻿using Azure.AI.OpenAI;
 using Azure.AI.Projects;
 using Azure.Identity;
+using MAF.Rag.TextSearchProvider.Helpers;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Spectre.Console;
@@ -49,18 +50,12 @@ AnsiConsole.MarkupLine("[green]Answer: [/]" + agentResponse.Text);
 
 static Task<IEnumerable<TextSearchProvider.TextSearchResult>> SearchAdapter(string query, CancellationToken cancellationToken)
 {
-    // The mock search inspects the user's question and returns pre-defined snippets
-    // that resemble documents stored in an external knowledge source.
-    List<TextSearchProvider.TextSearchResult> results = new();
-    if (query.Contains("return", StringComparison.OrdinalIgnoreCase) || query.Contains("refund", StringComparison.OrdinalIgnoreCase))
-    {
-        results.Add(new()
+    var results = DocumentSearchAdapter.Search(query)
+        .Select(r => new TextSearchProvider.TextSearchResult
         {
-            SourceName = "Contoso Outdoors Return Policy",
-            SourceLink = "https://contoso.com/policies/returns",
-            Text = "Customers may return any item within 30 days of delivery. Items should be unused and include original packaging. Refunds are issued to the original payment method within 5 business days of inspection."
+            SourceName = r.SourceName,
+            SourceLink = r.SourceLink,
+            Text = r.Text
         });
-    }
-
-    return Task.FromResult<IEnumerable<TextSearchProvider.TextSearchResult>>(results);
+    return Task.FromResult(results);
 }

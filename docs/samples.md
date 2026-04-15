@@ -161,6 +161,113 @@ dotnet run --project MAF.Tools.WebSearch/MAF.Tools.WebSearch.csproj
 
 ---
 
+
+---
+
+## 10) ⏳ MAF.SimpleAgent.BackgroundResponses
+
+- **Project:** `MAF.SimpleAgent.BackgroundResponses/MAF.SimpleAgent.BackgroundResponses.csproj`
+- **Highlights:**
+  - Background response mode via `AgentRunOptions.AllowBackgroundResponses`
+  - Continuation-token polling loop until the final response arrives
+  - Useful for long-running or streaming-style completions
+- **Run:**
+
+```bash
+cd src/MAF
+dotnet run --project MAF.SimpleAgent.BackgroundResponses/MAF.SimpleAgent.BackgroundResponses.csproj
+```
+
+---
+
+## 11) 🛡️ MAF.Middleware
+
+- **Project:** `MAF.Middleware/MAF.Middleware.csproj`
+- **Highlights:**
+  - Content-filtering guardrail via `.AsBuilder().Use(...)` middleware pipeline
+  - Blocks requests containing sensitive keywords (password, secret, credentials)
+  - Demonstrates how to wrap any `AIAgent` with custom pre/post-processing logic
+- **Run:**
+
+```bash
+cd src/MAF
+dotnet run --project MAF.Middleware/MAF.Middleware.csproj
+```
+
+---
+
+## 12) 🔍 MAF.Rag.TextSearchProvider
+
+- **Project:** `MAF.Rag.TextSearchProvider/MAF.Rag.TextSearchProvider.csproj`
+- **Highlights:**
+  - RAG (Retrieval-Augmented Generation) pattern using `TextSearchProvider`
+  - Search runs *before* the AI invocation (`TextSearchBehavior.BeforeAIInvoke`)
+  - Mock search back-end returns relevant policy snippets based on keywords
+  - Agent cites source documents in its answer
+- **Run:**
+
+```bash
+cd src/MAF
+dotnet run --project MAF.Rag.TextSearchProvider/MAF.Rag.TextSearchProvider.csproj
+```
+
+---
+
+## 13) 📂 MAF.Skills.FileBased
+
+- **Project:** `MAF.Skills.FileBased/MAF.Skills.FileBased.csproj`
+- **Requires additional env vars:** `SKILLSFOLDERPATH`, `HTMLPATH`
+- **Highlights:**
+  - Discovers skills from a folder via `AgentSkillsProvider(folderPath)`
+  - Each skill is defined in a `SKILL.md` file with front-matter metadata
+  - Demonstrates file-based skill injection as an `AIContextProvider`
+- **Run:**
+
+```bash
+cd src/MAF
+export SKILLSFOLDERPATH="<path-to-skills-folder>"
+export HTMLPATH="<path-to-html-file>"
+dotnet run --project MAF.Skills.FileBased/MAF.Skills.FileBased.csproj
+```
+
+---
+
+## 14) ✍️ MAF.Skills.InlineSkill
+
+- **Project:** `MAF.Skills.InlineSkill/MAF.Skills.InlineSkill.csproj`
+- **Requires additional env vars:** `SKILLSFOLDERPATH`, `HTMLPATH`
+- **Highlights:**
+  - Defines skills inline in code using `AgentInlineSkill`
+  - Dynamic resource callbacks supply runtime values (environment, team roster)
+  - Injects skills as an `AIContextProvider` without any external files
+- **Run:**
+
+```bash
+cd src/MAF
+export SKILLSFOLDERPATH="<path-to-skills-folder>"
+export HTMLPATH="<path-to-html-file>"
+dotnet run --project MAF.Skills.InlineSkill/MAF.Skills.InlineSkill.csproj
+```
+
+---
+
+## 15) 🖥️ MAF.DevUI
+
+- **Project:** `MAF.DevUI/MAF.DevUI.csproj`
+- **Highlights:**
+  - ASP.NET Core web host with multiple named agents (assistant, poet, coder)
+  - Sequential `AgentWorkflow` wiring two agents in a review pipeline
+  - Exposes OpenAI-compatible `/v1/responses` and `/v1/conversations` endpoints
+  - Developer UI available at `/devui` for interactive testing in the browser
+- **Run:**
+
+```bash
+cd src/MAF
+dotnet run --project MAF.DevUI/MAF.DevUI.csproj
+```
+
+Then open [https://localhost:50516/devui](https://localhost:50516/devui) in your browser.
+
 ## 🔗 Useful references
 
 - [Azure AI Foundry docs](https://learn.microsoft.com/azure/ai-foundry/)
@@ -170,3 +277,4 @@ dotnet run --project MAF.Tools.WebSearch/MAF.Tools.WebSearch.csproj
 - [Model Context Protocol docs](https://modelcontextprotocol.io/)
 - [Azure Container Registry docs](https://learn.microsoft.com/azure/container-registry/)
 - [Azure Container Apps docs](https://learn.microsoft.com/azure/container-apps/)
+- [Unit testing guide](testing.md)

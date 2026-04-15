@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using Azure.AI.Projects;
 using Azure.Identity;
+using MAF.Middleware.Helpers;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Spectre.Console;
@@ -51,18 +52,15 @@ async Task<AgentResponse> CustomAgentRunMiddleware(
     CancellationToken cancellationToken)
 {
     var lastMessage = messages.LastOrDefault()?.Text?.ToLower() ?? "";
-    string[] blockedWords = ["password", "secret", "credentials"];
+    var blockedWord = GuardrailHelper.FindBlockedWord(lastMessage);
 
-    foreach (var word in blockedWords)
+    if (blockedWord is not null)
     {
-        if (lastMessage.Contains(word))
-        {
-            Console.WriteLine($"[Guardrail] Blocked request containing '{word}'.");
-            return new AgentResponse([
-                new ChatMessage(ChatRole.Assistant,
-                    $"Sorry, I cannot process requests containing '{word}'.")
-            ]);
-        }
+        Console.WriteLine($"[Guardrail] Blocked request containing '{blockedWord}'.");
+        return new AgentResponse([
+            new ChatMessage(ChatRole.Assistant,
+                $"Sorry, I cannot process requests containing '{blockedWord}'.")
+        ]);
     }
 
     Console.WriteLine($"Input: {messages.Count()}");
