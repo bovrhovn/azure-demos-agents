@@ -1,7 +1,9 @@
-﻿using Azure.AI.Projects;
+﻿using Azure.AI.OpenAI;
+using Azure.AI.Projects;
 using Azure.Identity;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Compaction;
+using Microsoft.Extensions.AI;
 using Spectre.Console;
 
 AnsiConsole.MarkupLine("[blue]Session Compaction Agent Example[/]");
@@ -18,23 +20,24 @@ AnsiConsole.MarkupLine("[blue]Deployment Name[/]: " + deploymentName);
 
 #endregion
 
-#pragma warning disable MAAI001
+var chatClient = new AzureOpenAIClient(new Uri(endpoint), new DefaultAzureCredential())
+    .GetChatClient(deploymentName)
+    .AsIChatClient();
 
-PipelineCompactionStrategy compactionPipeline =
-    new(
-        new ToolResultCompactionStrategy(CompactionTriggers.TokensExceed(0x200)),
-        new SlidingWindowCompactionStrategy(CompactionTriggers.TurnsExceed(4)),
-        new TruncationCompactionStrategy(CompactionTriggers.TokensExceed(0x8000)));
+var pipeline = new PipelineCompactionStrategy(
+    new ToolResultCompactionStrategy(CompactionTriggers.TokensExceed(0x200)),
+    new SlidingWindowCompactionStrategy(CompactionTriggers.TurnsExceed(4)),
+    new TruncationCompactionStrategy(CompactionTriggers.TokensExceed(0x8000)));
 
-AIAgent agent = new AIProjectClient(new Uri(endpoint), new DefaultAzureCredential())
-    .AsAIAgent(
-        model: deploymentName,
-        instructions: "You are a friendly assistant. Keep your answers brief.",
-        name: "SessionContext")
-    .AsBuilder()
-    .UseAIContextProviders([new CompactionProvider(compactionPipeline)])
-    .Build();
-    
+AIAgent agent =
+    chatClient.AsBuilder()
+        .UseAIContextProviders(new CompactionProvider(pipeline))
+        .BuildAIAgent(new ChatClientAgentOptions
+        {
+            Name = "SessionContext",
+            ChatOptions = new() { Instructions = "You are a friendly assistant. Keep your answers brief." }
+        });
+
 var question = AnsiConsole.Ask<string>("Ask your question",
     "What is the 2nd largest city in United States by population size?");
 AnsiConsole.MarkupLine("[green]Question:[/]" + question);
