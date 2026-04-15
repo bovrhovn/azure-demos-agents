@@ -12,7 +12,9 @@
     <Project Path="MAF.Memory.CustomChatProvider/MAF.Memory.CustomChatProvider.csproj" />
     <Project Path="MAF.Memory.SessionContext/MAF.Memory.SessionContext.csproj" />
   </Folder>
-  <Folder Name="/Middleware/" />
+  <Folder Name="/Middleware/">
+    <Project Path="MAF.Middleware/MAF.Middleware.csproj" />
+  </Folder>
   <Folder Name="/RAG/">
     <Project Path="MAF.Rag.TextSearchProvider/MAF.Rag.TextSearchProvider.csproj" />
   </Folder>
