@@ -51,7 +51,7 @@ internal sealed class VectorChatHistoryProvider(
 
         var allNewMessages = context.RequestMessages.Concat(context.ResponseMessages ?? []);
 
-        await collection.UpsertAsync(allNewMessages.Select(x => new ChatHistoryItem()
+        await collection.UpsertAsync(allNewMessages.Select(x => new ChatHistoryItem
         {
             Key = state.SessionDbKey + x.MessageId,
             Timestamp = DateTimeOffset.UtcNow,

@@ -32,7 +32,7 @@ IChatClient client =
         .Build();
 
 AIAgent agent = client
-    .AsAIAgent(new ChatClientAgentOptions()
+    .AsAIAgent(new ChatClientAgentOptions
     {
         ChatOptions = new()
         {

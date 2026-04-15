@@ -11,8 +11,8 @@ var endpoint = Environment.GetEnvironmentVariable("ENDPOINT");
 ArgumentException.ThrowIfNullOrEmpty(endpoint, "ENDPOINT environment variable is not set.");
 var deploymentName = Environment.GetEnvironmentVariable("DEPLOYMENTNAME");
 ArgumentException.ThrowIfNullOrEmpty(deploymentName, "DEPLOYMENTNAME environment variable is not set.");
-var bingConnectionId = Environment.GetEnvironmentVariable("BingConnectionId");
-ArgumentException.ThrowIfNullOrEmpty(bingConnectionId, "BingConnectionId environment variable is not set.");
+var bingConnectionId = Environment.GetEnvironmentVariable("BINGCONNECTIONID");
+ArgumentException.ThrowIfNullOrEmpty(bingConnectionId, "BINGCONNECTIONID environment variable is not set.");
 
 AnsiConsole.MarkupLine("[blue]Endpoint [/]: " + endpoint);
 AnsiConsole.MarkupLine("[blue]Deployment Name[/]: " + deploymentName);
@@ -30,7 +30,7 @@ var bingTool = new BingGroundingToolDefinition(
 
 PersistentAgent agent = agentClient.Administration.CreateAgent(
     model: deploymentName,
-    name: "my-agent-with-search",
+    name: "my-agent-with-bing-search",
     instructions: "You are a helpful agent.",
     tools: [bingTool]);
 

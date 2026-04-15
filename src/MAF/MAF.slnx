@@ -4,11 +4,15 @@
     <Project Path="MAF.SimpleAgent.StructuredApproach/MAF.SimpleAgent.StructuredApproach.csproj" />
     <Project Path="MAF.SimpleAgent/MAF.SimpleAgent.csproj" />
   </Folder>
+  <Folder Name="/DEVUI/">
+    <Project Path="MAF.DevUI/MAF.DevUI.csproj" />
+  </Folder>
   <Folder Name="/Memory/">
     <Project Path="MAF.Memory.Compaction/MAF.Memory.Compaction.csproj" />
     <Project Path="MAF.Memory.CustomChatProvider/MAF.Memory.CustomChatProvider.csproj" />
     <Project Path="MAF.Memory.SessionContext/MAF.Memory.SessionContext.csproj" />
   </Folder>
+  <Folder Name="/Middleware/" />
   <Folder Name="/RAG/">
     <Project Path="MAF.Rag.TextSearchProvider/MAF.Rag.TextSearchProvider.csproj" />
   </Folder>
