@@ -12,15 +12,9 @@ var endpoint = Environment.GetEnvironmentVariable("ENDPOINT");
 ArgumentException.ThrowIfNullOrEmpty(endpoint, "ENDPOINT environment variable is not set.");
 var deploymentName = Environment.GetEnvironmentVariable("DEPLOYMENTNAME");
 ArgumentException.ThrowIfNullOrEmpty(deploymentName, "DEPLOYMENTNAME environment variable is not set.");
-var skillFolderPath = Environment.GetEnvironmentVariable("SKILLSFOLDERPATH");
-ArgumentException.ThrowIfNullOrEmpty(skillFolderPath, "SKILLSFOLDERPATH environment variable is not set.");
-var htmlPath = Environment.GetEnvironmentVariable("HTMLPATH");
-ArgumentException.ThrowIfNullOrEmpty(htmlPath, "HTMLPATH environment variable is not set.");
 
 AnsiConsole.MarkupLine("[blue]Endpoint [/]: " + endpoint);
 AnsiConsole.MarkupLine("[blue]Deployment Name[/]: " + deploymentName);
-AnsiConsole.MarkupLine("[blue]Skills Folder Name[/]: " + skillFolderPath);
-AnsiConsole.MarkupLine("[blue]Html file[/]: " + htmlPath);
 
 #endregion
 
@@ -47,7 +41,7 @@ var skillsProvider = new AgentSkillsProvider(projectInfoSkill);
 // Create an agent with the skills provider
 AIAgent agent = new AzureOpenAIClient(new Uri(endpoint), new DefaultAzureCredential())
     .GetResponsesClient()
-    .AsIChatClient()
+    .AsIChatClient(deploymentName)
     .AsAIAgent(new ChatClientAgentOptions
     {
         Name = "SkillsAgentWithInlineSkills",

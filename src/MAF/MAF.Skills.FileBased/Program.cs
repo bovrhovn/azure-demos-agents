@@ -30,7 +30,7 @@ var skillsProvider = new AgentSkillsProvider(skillFolderPath);
 // Create an agent with the skills provider
 AIAgent agent = new AzureOpenAIClient(new Uri(endpoint), new DefaultAzureCredential())
     .GetResponsesClient()
-    .AsIChatClient()
+    .AsIChatClient(deploymentName)
     .AsAIAgent(new ChatClientAgentOptions
         {
             Name = "SkillsAgentWithFileSkills",

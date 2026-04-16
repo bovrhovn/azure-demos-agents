@@ -15,6 +15,9 @@ var endpoint = builder.Configuration["ENDPOINT"] ??
                throw new InvalidOperationException("ENDPOINT is not set.");
 var deploymentName = builder.Configuration["DEPLOYMENTNAME"] ?? "gpt-5.4-mini";
 
+AnsiConsole.MarkupLine("[blue]Using Azure OpenAI Endpoint:[/] " + endpoint);
+AnsiConsole.MarkupLine("[blue]Using deployment:[/] " + deploymentName);
+
 var chatClient = new AzureOpenAIClient(new Uri(endpoint), new DefaultAzureCredential())
     .GetChatClient(deploymentName)
     .AsIChatClient();
